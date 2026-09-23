@@ -105,7 +105,7 @@
             color: var(--accent-color);
         }
 
-        /* Scroll-Animations Klassen (JS gesteuert) */
+        /* Scroll-Animations Klassen */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -204,7 +204,7 @@
             margin-bottom: 60px;
         }
 
-        /* Firmenlogo Showcase Banner - Logo sehr groß, Text angepasst */
+        /* Firmenlogo Showcase Banner */
         .company-banner {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -230,20 +230,20 @@
         }
 
         .company-banner-logo img {
-            max-height: 280px; /* Nochmals deutlich größer gemacht! */
+            max-height: 280px;
             width: auto;
             display: block;
         }
 
         .company-banner-text h3 {
-            font-size: 2.2rem; /* Größere Überschrift */
+            font-size: 2.2rem;
             margin-bottom: 20px;
             color: var(--text-main);
         }
 
         .company-banner-text p {
             color: var(--text-muted);
-            font-size: 1.2rem; /* Größerer Lesetext */
+            font-size: 1.2rem;
             line-height: 1.7;
         }
 
@@ -411,10 +411,22 @@
             font-weight: 600;
         }
 
+        /* Responsive Anpassungen für Smartphones */
         @media(max-width: 900px) {
             .nav-links { display: none; }
-            .hero { padding-top: 140px; }
-            .company-banner { flex-direction: column; text-align: center; }
+            header.hero { padding: 120px 15px 50px; }
+            .hero h1 { font-size: 2.2rem; }
+            .company-banner { flex-direction: column; text-align: center; padding: 30px 20px; gap: 30px; }
+            .company-banner-logo img { max-height: 180px; }
+            section { padding: 70px 5%; }
+            .details-container { padding: 30px 20px; }
+            
+            /* Optimierung für das Showcase-Bild auf dem Handy */
+            .showcase-container {
+                border-radius: 12px;
+                margin-top: 10px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+            }
         }
     </style>
 </head>
@@ -447,7 +459,7 @@
         </div>
     </header>
 
-    <!-- Unternehmens- und Markenpräsentation (Sehr großes Logo, angepasster Text) -->
+    <!-- Unternehmens- und Markenpräsentation -->
     <section id="about">
         <div class="company-banner reveal">
             <div class="company-banner-logo">
