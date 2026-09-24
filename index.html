@@ -356,43 +356,60 @@
             line-height: 1.6;
         }
 
-        /* TEAM / PROJEKT-SEKTION */
+        /* TEAM-SEKTION (HOCHWERTIG & STRUKTURIERT) */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            max-width: 1050px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .team-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 35px;
+            padding: 40px 30px;
             border-radius: 16px;
-            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: border-color 0.3s ease;
         }
 
         .team-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .team-avatar {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .team-role {
             color: var(--accent-blue);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
         }
 
         .team-card h3 {
             font-size: 1.4rem;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: var(--text-main);
         }
 
@@ -454,7 +471,7 @@
         <a href="#dashboard" class="nav-btn">Live-Demo</a>
     </header>
 
-    <!-- HERO SEKTION MIT SLIDESHOW -->
+    <!-- HERO SEKTION MIT SLIDESHOW (ALLE 5 BILDER INTEGRIERT) -->
     <section class="hero-section" id="hero">
         <div class="hero-content">
             <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
@@ -466,11 +483,11 @@
             </div>
         </div>
         
-        <!-- RECHTE SEITE: SLIDESHOW -->
+        <!-- SLIDESHOW MIT ALLEN BILDERN INKL. IMAGE.PNG & DASHBOARD-PREVIEW.PNG -->
         <div class="slideshow-container">
             <div class="slide active">
-                <img src="image.png" alt="IUM System im Einsatz mit Laptop und Baustelle Wien">
-                <div class="slide-caption"><span>Live-Einsatz:</span> Das IUM-System vor Ort mit Wiener Baustelle im Hintergrund</div>
+                <img src="image.png" alt="IUM System im Einsatz vor Baustelle mit Laptop">
+                <div class="slide-caption"><span>Live-Einsatz:</span> Das IUM-Gerät vor Ort mit Laptop und Baustelle Wien</div>
             </div>
             <div class="slide">
                 <img src="dashboard-preview.png" alt="IUM Live-Dashboard auf dem Laptop">
@@ -542,7 +559,7 @@
         </div>
     </section>
 
-    <!-- PROJEKTTEAM -->
+    <!-- PROJEKTTEAM (SCHÖN STRUKTURIERT) -->
     <section class="section" id="team">
         <div class="section-header">
             <h2>Das Projektteam</h2>
@@ -551,6 +568,7 @@
         <div class="team-grid">
             <div class="team-card">
                 <div>
+                    <div class="team-avatar">EŠ</div>
                     <div class="team-role">Projektleitung</div>
                     <h3>Endrin Shala</h3>
                     <p>Verantwortlich für die Gesamtkoordination, die strategische Planung der Diplomarbeit sowie die nahtlose Systemintegration und die übergeordnete Architektur der Web-Oberfläche und des Dashboards.</p>
@@ -558,6 +576,7 @@
             </div>
             <div class="team-card">
                 <div>
+                    <div class="team-avatar">AY</div>
                     <div class="team-role">Hardware & Schaltungsdesign</div>
                     <h3>Ahmed Yousef</h3>
                     <p>Verantwortlich für den Entwurf und die Bestückung der Hauptplatinen, die präzise Anbindung der Sensorik sowie das Energiemanagement und die physikalische Gehäusekonstruktion des Messmonitors.</p>
@@ -565,6 +584,7 @@
             </div>
             <div class="team-card">
                 <div>
+                    <div class="team-avatar">EG</div>
                     <div class="team-role">Entwicklung & Mikrocontroller</div>
                     <h3>Emir Gutic</h3>
                     <p>Verantwortlich für die Programmierung des ESP32-Mikrocontrollers, die Auswertung der Rohdaten der Radar-, Lärm- und Feinstaubmodule sowie die sichere Datenübertragung an die Cloud-Infrastruktur.</p>
@@ -575,9 +595,9 @@
 
     <!-- FOOTER / DASHBOARD -->
     <footer id="dashboard">
-        <p><strong>IUM Systeme Österreich (Immobilien-Umweltmonitor)</strong></p>
-        <p>Eine Diplomarbeit der <strong>HTL Donaustadt</strong> (Schuljahr 2026/2027).</p>
-        <p style="margin-top: 15px; color: var(--accent-blue);">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
+        <p><strong>IUM Systeme Österreich (Immobilien-Umweltmonitor)</strong>[cite: 1]</p>
+        <p>Eine Diplomarbeit der <strong>HTL Donaustadt</strong> (Schuljahr 2026/2027).[cite: 1]</p>
+        <p style="margin-top: 15px; color: var(--accent-blue);">Smarte Städte beginnen im Detail. Alle Rechte vorbehalten.[cite: 1]</p>
     </footer>
 
     <!-- JAVASCRIPT FÜR DEN BILDWECHSLER -->
