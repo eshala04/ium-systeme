@@ -54,12 +54,19 @@
             gap: 12px;
         }
 
-        .logo-container img {
+        /* Scharfes, sauberes Logo-Design statt verpixeltem Bild */
+        .logo-emblem {
             width: 40px;
             height: 40px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 1px solid var(--accent-blue);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
 
         .logo-text {
@@ -107,7 +114,7 @@
             box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
         }
 
-        /* HERO SEKTION */
+        /* HERO SEKTION MIT SLIDESHOW */
         .hero-section {
             display: flex;
             align-items: center;
@@ -119,7 +126,7 @@
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 580px;
         }
 
         .badge {
@@ -192,19 +199,52 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .hero-image-container img {
+        /* SLIDESHOW STYLING FÜR DIE RECHTE SEITE */
+        .slideshow-container {
             max-width: 580px;
             width: 100%;
+            position: relative;
             border-radius: 16px;
+            overflow: hidden;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
             border: 1px solid var(--border-color);
-            animation: float 6s ease-in-out infinite;
+            background: var(--card-bg);
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .slide {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .slide-caption {
+            padding: 15px 20px;
+            background: var(--card-bg);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .slide-caption span {
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
         }
 
         /* SEKTIONEN ALLGEMEIN */
@@ -317,12 +357,12 @@
             line-height: 1.6;
         }
 
-        /* TEAM / PROJEKT-SEKTION */
+        /* TEAM / PROJEKT-SEKTION MIT AUSFÜHRLICHEN TEXTEN */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            max-width: 950px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
@@ -331,23 +371,40 @@
             border: 1px solid var(--border-color);
             padding: 35px;
             border-radius: 16px;
-            text-align: center;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.3s ease;
+        }
+
+        .team-card:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .team-role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
         }
 
         .team-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
             color: var(--text-main);
         }
 
         .team-card p {
-            color: var(--accent-blue);
-            font-weight: 500;
+            color: var(--text-muted);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         /* FOOTER */
-        footer {
+        ooter {
             padding: 50px 8%;
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -385,7 +442,7 @@
     <!-- NAVIGATION -->
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="IUM Logo">
+            <div class="logo-emblem">IUM</div>
             <div class="logo-text"><span>IUM</span> SYSTEME ÖSTERREICH</div>
         </div>
         <nav>
@@ -398,7 +455,7 @@
         <a href="#dashboard" class="nav-btn">Live-Demo</a>
     </header>
 
-    <!-- HERO SEKTION -->
+    <!-- HERO SEKTION MIT AUTOMATISCHEM SLIDER -->
     <section class="hero-section" id="hero">
         <div class="hero-content">
             <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
@@ -409,8 +466,21 @@
                 <a href="#team" class="btn-secondary">Das Team kennenlernen</a>
             </div>
         </div>
-        <div class="hero-image-container">
-            <img src="hero-sensor-radar.png" alt="IUM Sensor Radar">
+        
+        <!-- RECHTE SEITE: SLIDESHOW (Radar -> Feinstaub -> Mikrofon) -->
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="hero-sensor-radar.png" alt="IUM Sensor Radar">
+                <div class="slide-caption"><span>Modul 1:</span> 24-GHz-Dopplerradar zur berührungslosen Verkehrserfassung</div>
+            </div>
+            <div class="slide">
+                <img src="sensor-feinstaub.png" alt="Feinstaub Einlass">
+                <div class="slide-caption"><span>Modul 2:</span> Optischer Feinstaub- und Luftgütesensor (PM2.5 & PM10)</div>
+            </div>
+            <div class="slide">
+                <img src="sensor-laerm.png" alt="Mikrofon Array">
+                <div class="slide-caption"><span>Modul 3:</span> Präzises Akustik-Mikrofon-Array zur Lärmpegelmessung</div>
+            </div>
         </div>
     </section>
 
@@ -465,7 +535,7 @@
         </div>
     </section>
 
-    <!-- PROJEKTTEAM -->
+    <!-- PROJEKTTEAM MIT AUSFÜHRLICHEN BESCHREIBUNGEN -->
     <section class="section" id="team">
         <div class="section-header">
             <h2>Das Projektteam</h2>
@@ -473,16 +543,25 @@
         </div>
         <div class="team-grid">
             <div class="team-card">
-                <h3>Endrin Shala</h3>
-                <p>Projektleiter</p>
+                <div>
+                    <div class="team-role">Projektleitung</div>
+                    <h3>Endrin Shala</h3>
+                    <p>Verantwortlich für die Gesamtkoordination, die strategische Planung der Diplomarbeit sowie die nahtlose Systemintegration und die übergeordnete Architektur der Web-Oberfläche und des Dashboards.</p>
+                </div>
             </div>
             <div class="team-card">
-                <h3>Ahmed Yousef</h3>
-                <p>Projektverantwortlicher / Hardware & Software</p>
+                <div>
+                    <div class="team-role">Hardware & Schaltungsdesign</div>
+                    <h3>Ahmed Yousef</h3>
+                    <p>Verantwortlich für den Entwurf und die Bestückung der Hauptplatinen, die präzise Anbindung der Sensorik sowie das Energiemanagement und die physikalische Gehäusekonstruktion des Messmonitors.</p>
+                </div>
             </div>
             <div class="team-card">
-                <h3>Emir Gutic</h3>
-                <p>Projektverantwortlicher / Entwicklung & Systeme</p>
+                <div>
+                    <div class="team-role">Entwicklung & Mikrocontroller</div>
+                    <h3>Emir Gutic</h3>
+                    <p>Verantwortlich für die Programmierung des ESP32-Mikrocontrollers, die Auswertung der Rohdaten der Radar-, Lärm- und Feinstaubmodule sowie die sichere Datenübertragung an die Cloud-Infrastruktur.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -494,5 +573,19 @@
         <p style="margin-top: 15px; color: var(--accent-blue);">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
     </footer>
 
+    <!-- JAVASCRIPT FÜR DEN BILDBWECHSLER (SLIDESHOW) -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showNextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Alle 4 Sekunden wechselt das Bild automatisch
+        setInterval(showNextSlide, 4000);
+    </script>
 </body>
 </html>
