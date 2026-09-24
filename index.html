@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IUM – Immobilien-Umweltmonitor | HTL Diplomarbeit</title>
+    <!-- Favicon Integration -->
+    <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -39,30 +41,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: rgba(11, 15, 25, 0.85);
+            padding: 15px 8%;
+            background: rgba(11, 15, 25, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.25rem;
-            letter-spacing: 1px;
-            color: var(--text-main);
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .logo span {
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--accent-blue);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .logo-text span {
             color: var(--accent-blue);
         }
 
         nav {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -123,7 +136,7 @@
         }
 
         h1 {
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 20px;
             font-weight: 800;
@@ -136,10 +149,10 @@
         }
 
         .slogan {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 35px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .hero-buttons {
@@ -180,7 +193,7 @@
         }
 
         .hero-image-container img {
-            max-width: 600px;
+            max-width: 580px;
             width: 100%;
             border-radius: 16px;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
@@ -190,11 +203,11 @@
 
         @keyframes float {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
 
-        /* SEKTION: DAS INNERE (SCHNITTMODELL) */
+        /* SEKTIONEN ALLGEMEIN */
         .section {
             padding: 100px 8%;
             border-top: 1px solid var(--border-color);
@@ -202,7 +215,7 @@
 
         .section-header {
             text-align: center;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 60px auto;
         }
 
@@ -215,8 +228,10 @@
         .section-header p {
             color: var(--text-muted);
             font-size: 1.1rem;
+            line-height: 1.6;
         }
 
+        /* HARDWARE / INNENLEBEN */
         .hardware-showcase {
             display: flex;
             flex-direction: column;
@@ -226,26 +241,54 @@
 
         .hardware-showcase img {
             width: 100%;
-            max-width: 900px;
+            max-width: 950px;
             border-radius: 16px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             border: 1px solid var(--border-color);
         }
 
+        .hardware-description {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 950px;
+            width: 100%;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        .hardware-description h3 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hardware-description ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .hardware-description li {
+            margin-bottom: 8px;
+        }
+
         /* GRID FÜR KOMPONENTEN */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 40px;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 30px;
             transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -257,30 +300,65 @@
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
         }
 
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
         }
 
         .card p {
             color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        /* TEAM / PROJEKT-SEKTION */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .team-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .team-card p {
+            color: var(--accent-blue);
+            font-weight: 500;
             font-size: 0.95rem;
-            line-height: 1.5;
         }
 
         /* FOOTER */
         footer {
-            padding: 40px 8%;
+            padding: 50px 8%;
             border-top: 1px solid var(--border-color);
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             background: var(--card-bg);
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: var(--text-main);
         }
 
         /* RESPONSIVE */
@@ -288,7 +366,7 @@
             .hero-section {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 120px;
+                padding-top: 130px;
             }
             .hero-buttons {
                 justify-content: center;
@@ -306,16 +384,18 @@
 
     <!-- NAVIGATION -->
     <header>
-        <div class="logo">
-            <span>IUM</span> SYSTEME ÖSTERREICH
+        <div class="logo-container">
+            <img src="logo.png" alt="IUM Logo">
+            <div class="logo-text"><span>IUM</span> SYSTEME ÖSTERREICH</div>
         </div>
         <nav>
             <a href="#hero">Start</a>
-            <a href="#technologie">Technologie</a>
             <a href="#hardware">Innenleben</a>
-            <a href="#dashboard">Live-Demo</a>
+            <a href="#technologie">Technologie</a>
+            <a href="#team">Projektteam</a>
+            <a href="#dashboard">Live-Dashboard</a>
         </nav>
-        <a href="#dashboard" class="nav-btn">Dashboard öffnen</a>
+        <a href="#dashboard" class="nav-btn">Live-Demo</a>
     </header>
 
     <!-- HERO SEKTION -->
@@ -323,10 +403,10 @@
         <div class="hero-content">
             <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
             <h1>Mobilität. Umwelt. <span class="gradient-text">Lebensqualität.</span></h1>
-            <p class="slogan">„Saubere Daten. Bessere Entscheidungen.“ – Der voll autonome Immobilien- und Umweltmonitor für smarte Gebäude und Städte.</p>
+            <p class="slogan">„Saubere Daten. Bessere Entscheidungen.“ – Der voll autonome Immobilien- und Umweltmonitor erfasst in Echtzeit alle relevanten Umwelt- und Verkehrsdaten direkt am Gebäude, um fundierte Entscheidungen für smarte Städte zu ermöglichen.</p>
             <div class="hero-buttons">
                 <a href="#hardware" class="btn-primary">Technologie entdecken</a>
-                <a href="#dashboard" class="btn-secondary">Live-Daten ansehen</a>
+                <a href="#team" class="btn-secondary">Das Team kennenlernen</a>
             </div>
         </div>
         <div class="hero-image-container">
@@ -337,43 +417,81 @@
     <!-- INNERE HARDWARE / SCHNITTMODELL -->
     <section class="section" id="hardware">
         <div class="section-header">
-            <h2>Ingenieurskunst im Detail</h2>
-            <p>Das Herzstück des IUM-Monitors: Präzise Sensorik, kombiniert auf einer maßgeschneiderten Hauptplatine mit dem zentralen ESP32-Mikrocontroller.</p>
+            <h2>Ingenieurskunst im Detail: Das Innenleben</h2>
+            <p>Ein Blick unter die Haube zeigt die präzise Hardware-Architektur unseres Überwachungssystems. Jedes Modul ist passgenau integriert, um maximale Zuverlässigkeit im Dauerbetrieb zu garantieren.</p>
         </div>
         <div class="hardware-showcase">
             <img src="hardware-schnittmodell.png" alt="IUM Sensor Schnittmodell Innenleben">
+            <div class="hardware-description">
+                <h3>Wie die Komponenten im Inneren zusammenarbeiten</h3>
+                <p>Im Zentrum des Gehäuses befindet sich eine eigens entworfene Hauptplatine (PCB) mit einem leistungsstarken <strong>ESP32-Mikrocontroller</strong> als zentralem Rechenherz. Dieser verarbeitet alle eintreffenden Messdaten direkt lokal vor Ort, verschlüsselt sie und leitet sie über moderne Schnittstellen (wie WLAN, LTE oder optional GNSS) an unser Web-Dashboard weiter.</p>
+                <ul>
+                    <li><strong>Zentrale Steuerung:</strong> Der ESP32 koordiniert die Stromversorgung, die Sensorabfragen und die Datenübertragung im Sekundentakt.</li>
+                    <li><strong>Modulärer Aufbau:</strong> Die Erfassungsmodule für Radar, Lärm und Feinstaub sind physisch getrennt und über optimierte Signalwege direkt angebunden.</li>
+                    <li><strong>Autonomer Betrieb:</strong> Dank effizientem Energiemanagement (PoE oder 12-24V DC) läuft das System absolut wartungsfrei rund um die Uhr.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- TECHNOLOGIE & KOMPONENTEN -->
     <section class="section" id="technologie">
         <div class="section-header">
-            <h2>Die Kernkomponenten</h2>
-            <p>Was in dem kompakten Gehäuse steckt und wie Umweltdaten in Echtzeit erfasst werden.</p>
+            <h2>Die Kernkomponenten im Detail</h2>
+            <p>Erfahre genau, welche Sensoren verbaut sind, was sie messen und wie sie zu einer besseren Umweltanalyse beitragen.</p>
         </div>
         <div class="grid-3">
             <div class="card">
                 <img src="hero-sensor-radar.png" alt="Radar Modul">
-                <h3>24-GHz-Dopplerradar</h3>
-                <p>Erfasst berührungslos und datenschutzkonform die Verkehrsgeschwindigkeit und Fahrzeugfrequenz in Echtzeit direkt vor dem Objekt.</p>
+                <div>
+                    <h3>24-GHz-Dopplerradar</h3>
+                    <p>Das Radarsystem misst berührungslos und vollkommen datenschutzkonform die exakte Geschwindigkeit sowie die Frequenz vorbeifahrender Fahrzeuge. Es erkennt Muster im Verkehrsfluss und liefert präzise Kennzahlen zur Belastung direkt vor dem Objekt, ganz ohne Videoaufzeichnung von Personen.</p>
+                </div>
             </div>
             <div class="card">
                 <img src="sensor-laerm.png" alt="Mikrofon Array">
-                <h3>Mikrofon-Array</h3>
-                <p>Misst präzise den Schallpegel in dB(A), führt Frequenzanalysen durch und erkennt akustische Umwelt-Ereignisse.</p>
+                <div>
+                    <h3>Mikrofon-Array (Akustik)</h3>
+                    <p>Ein hochpräzises Mikrofon-Array erfasst kontinuierlich den Schalldruckpegel in Dezibel dB(A). Durch integrierte Frequenzanalysen können Lärmspitzen identifiziert, akustische Umwelt-Ereignisse klassifiziert und die reale Lärmbelastung für Anwohner messbar gemacht werden.</p>
+                </div>
             </div>
             <div class="card">
                 <img src="sensor-feinstaub.png" alt="Feinstaub Einlass">
-                <h3>Feinstaub & Luftgüte</h3>
-                <p>Analysiert mittels optischer Laserstreuung die Partikelkonzentration (PM2.5 & PM10) sowie Temperatur und Luftfeuchte.</p>
+                <div>
+                    <h3>Feinstaub & Luftgüte</h3>
+                    <p>Über einen aerodynamisch optimierten Lamelleneinlass wird die Umgebungsluft analysiert. Mittels optischer Laserstreuung werden Partikelgrößen wie PM2.5 und PM10 in Echtzeit gemessen. Ergänzt durch Sensoren für Temperatur und Luftfeuchte entsteht ein komplettes Mikroklima-Profil.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- PROJEKTTEAM -->
+    <section class="section" id="team">
+        <div class="section-header">
+            <h2>Das Projektteam</h2>
+            <p>Hinter IUM Systeme Österreich stehen ambitionierte Entwickler und Techniker der HTL Donaustadt.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <h3>Endrin Shala</h3>
+                <p>Projektleiter</p>
+            </div>
+            <div class="team-card">
+                <h3>Ahmed Yousef</h3>
+                <p>Projektverantwortlicher / Hardware & Software</p>
+            </div>
+            <div class="team-card">
+                <h3>Emir Gutic</h3>
+                <p>Projektverantwortlicher / Entwicklung & Systeme</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / DASHBOARD -->
     <footer id="dashboard">
-        <p><strong>IUM Systeme Österreich</strong> – Ein Projekt der HTL Donaustadt (Diplomarbeit 2026/2027).</p>
-        <p style="margin-top: 10px;">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
+        <p><strong>IUM Systeme Österreich (Immobilien-Umweltmonitor)</strong></p>
+        <p>Eine Diplomarbeit der <strong>HTL Donaustadt</strong> (Schuljahr 2026/2027).</p>
+        <p style="margin-top: 15px; color: var(--accent-blue);">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
     </footer>
 
 </body>
