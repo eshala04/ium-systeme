@@ -54,7 +54,6 @@
             gap: 12px;
         }
 
-        /* Scharfes, sauberes Logo-Design statt verpixeltem Bild */
         .logo-emblem {
             width: 40px;
             height: 40px;
@@ -199,7 +198,7 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* SLIDESHOW STYLING FÜR DIE RECHTE SEITE */
+        /* SLIDESHOW STYLING */
         .slideshow-container {
             max-width: 580px;
             width: 100%;
@@ -357,7 +356,7 @@
             line-height: 1.6;
         }
 
-        /* TEAM / PROJEKT-SEKTION MIT AUSFÜHRLICHEN TEXTEN */
+        /* TEAM / PROJEKT-SEKTION */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -404,7 +403,7 @@
         }
 
         /* FOOTER */
-        ooter {
+        footer {
             padding: 50px 8%;
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -455,7 +454,7 @@
         <a href="#dashboard" class="nav-btn">Live-Demo</a>
     </header>
 
-    <!-- HERO SEKTION MIT AUTOMATISCHEM SLIDER -->
+    <!-- HERO SEKTION MIT SLIDESHOW -->
     <section class="hero-section" id="hero">
         <div class="hero-content">
             <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
@@ -467,9 +466,17 @@
             </div>
         </div>
         
-        <!-- RECHTE SEITE: SLIDESHOW (Radar -> Feinstaub -> Mikrofon) -->
+        <!-- RECHTE SEITE: SLIDESHOW -->
         <div class="slideshow-container">
             <div class="slide active">
+                <img src="image.png" alt="IUM System im Einsatz mit Laptop und Baustelle Wien">
+                <div class="slide-caption"><span>Live-Einsatz:</span> Das IUM-System vor Ort mit Wiener Baustelle im Hintergrund</div>
+            </div>
+            <div class="slide">
+                <img src="dashboard-preview.png" alt="IUM Live-Dashboard auf dem Laptop">
+                <div class="slide-caption"><span>Web-Dashboard:</span> Echtzeit-Datenüberwachung direkt auf dem Laptop</div>
+            </div>
+            <div class="slide">
                 <img src="hero-sensor-radar.png" alt="IUM Sensor Radar">
                 <div class="slide-caption"><span>Modul 1:</span> 24-GHz-Dopplerradar zur berührungslosen Verkehrserfassung</div>
             </div>
@@ -535,7 +542,7 @@
         </div>
     </section>
 
-    <!-- PROJEKTTEAM MIT AUSFÜHRLICHEN BESCHREIBUNGEN -->
+    <!-- PROJEKTTEAM -->
     <section class="section" id="team">
         <div class="section-header">
             <h2>Das Projektteam</h2>
@@ -573,7 +580,7 @@
         <p style="margin-top: 15px; color: var(--accent-blue);">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- JAVASCRIPT FÜR DEN BILDBWECHSLER (SLIDESHOW) -->
+    <!-- JAVASCRIPT FÜR DEN BILDWECHSLER -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -584,7 +591,7 @@
             slides[currentSlide].classList.add('active');
         }
 
-        // Alle 4 Sekunden wechselt das Bild automatisch
+        // Alle 4 Sekunden wechselt das Bild automatisch weiter
         setInterval(showNextSlide, 4000);
     </script>
 </body>
