@@ -1,99 +1,72 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="icon" type="image/png" href="logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IUM Systeme Österreich | Immobilien-Umweltmonitor</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>IUM – Immobilien-Umweltmonitor | HTL Diplomarbeit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030712;
-            --card-bg: rgba(15, 23, 42, 0.75);
-            --accent-color: #0284c7;
+            --bg-color: #0b0f19;
+            --card-bg: #111827;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-blue: #3b82f6;
             --accent-green: #10b981;
-            --accent-glow: rgba(2, 132, 199, 0.35);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
+            --border-color: #1f2937;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
-            line-height: 1.6;
         }
 
-        .bg-glow {
-            position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(2,132,199,0.12) 0%, rgba(16,185,129,0.05) 40%, rgba(0,0,0,0) 70%);
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            filter: blur(100px);
-        }
-
-        /* Navigation */
-        nav {
+        /* NAVIGATION */
+        header {
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 8%;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(14px);
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
         }
 
-        .nav-logo {
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 14px;
-            text-decoration: none;
+            gap: 10px;
         }
 
-        .nav-logo img {
-            height: 52px;
-            width: auto;
-            border-radius: 6px;
+        .logo span {
+            color: var(--accent-blue);
         }
 
-        .nav-logo span {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: 0.5px;
-        }
-
-        .nav-logo span span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
+        nav {
             display: flex;
             gap: 30px;
-            list-style: none;
+            align-items: center;
         }
 
-        .nav-links a {
+        nav a {
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
@@ -101,487 +74,307 @@
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
+        nav a:hover {
+            color: var(--text-main);
         }
 
-        /* Scroll-Animations Klassen */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        .nav-btn {
+            background: var(--accent-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        .nav-btn:hover {
+            background: #2563eb;
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
         }
 
-        /* Hero Sektion */
-        header.hero {
-            min-height: 100vh;
+        /* HERO SEKTION */
+        .hero-section {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 160px 20px 80px;
-            position: relative;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 140px 8% 80px 8%;
+            background: radial-gradient(circle at 20% 30%, #1e293b 0%, var(--bg-color) 70%);
+            gap: 50px;
         }
 
-        .hero-badge {
-            background: rgba(2, 132, 199, 0.1);
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 6px 16px;
-            border-radius: 50px;
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            display: inline-block;
             margin-bottom: 20px;
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            font-weight: 800;
-            max-width: 950px;
+        h1 {
+            font-size: 3.8rem;
             line-height: 1.1;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
+            font-weight: 800;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            font-size: 1.15rem;
+        .slogan {
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 680px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
+            line-height: 1.5;
         }
 
-        /* Bild Showcase Box */
-        .showcase-container {
-            width: 100%;
-            max-width: 1150px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
             border: 1px solid var(--border-color);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 40px var(--accent-glow);
-            position: relative;
+            transition: all 0.3s ease;
         }
 
-        .showcase-container img {
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-image-container img {
+            max-width: 600px;
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s ease;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            border: 1px solid var(--border-color);
+            animation: float 6s ease-in-out infinite;
         }
 
-        .showcase-container:hover img {
-            transform: scale(1.02);
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
         }
 
-        /* Sektionen Allgemein */
-        section {
-            padding: 110px 8%;
-            position: relative;
+        /* SEKTION: DAS INNERE (SCHNITTMODELL) */
+        .section {
+            padding: 100px 8%;
+            border-top: 1px solid var(--border-color);
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.3rem;
-            font-weight: 700;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            letter-spacing: -0.5px;
+            font-weight: 700;
         }
 
-        .section-subtitle {
-            text-align: center;
+        .section-header p {
             color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 60px;
+            font-size: 1.1rem;
         }
 
-        /* Firmenlogo Showcase Banner */
-        .company-banner {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 60px;
+        .hardware-showcase {
             display: flex;
-            align-items: center;
-            gap: 60px;
-            backdrop-filter: blur(12px);
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .company-banner-logo {
-            background: #ffffff;
-            padding: 35px 45px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .company-banner-logo img {
-            max-height: 280px;
-            width: auto;
-            display: block;
-        }
-
-        .company-banner-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
-
-        .company-banner-text p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            line-height: 1.7;
-        }
-
-        /* Features / Module Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 35px 30px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 30px rgba(2, 132, 199, 0.15);
-        }
-
-        .feature-card i {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Technische Systemarchitektur */
-        .details-container {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 50px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            flex-direction: column;
             gap: 40px;
-        }
-
-        .detail-item h4 {
-            color: var(--text-main);
-            font-size: 1.15rem;
-            margin-bottom: 12px;
-            display: flex;
             align-items: center;
-            gap: 12px;
         }
 
-        .detail-item h4 i {
-            color: var(--accent-green);
+        .hardware-showcase img {
+            width: 100%;
+            max-width: 900px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid var(--border-color);
         }
 
-        .detail-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Team Sektion */
-        .team-grid {
+        /* GRID FÜR KOMPONENTEN */
+        .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            max-width: 1050px;
-            margin: 0 auto;
+            margin-top: 40px;
         }
 
-        .team-card {
+        .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .team-card.leader {
-            border: 2px solid var(--accent-color);
-            box-shadow: 0 0 30px rgba(2, 132, 199, 0.2);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
         }
 
-        .team-card:hover {
-            transform: translateY(-6px);
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
         }
 
-        .badge-leader {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(2, 132, 199, 0.15);
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .team-avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0284c7, #0f172a);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 auto 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .team-card h3 {
+        .card h3 {
             font-size: 1.3rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .team-card .role {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .team-card p {
+        .card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
-            background: #020617;
+            padding: 40px 8%;
             border-top: 1px solid var(--border-color);
-            padding: 50px 8%;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
+            background: var(--card-bg);
         }
 
-        footer p span {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* Responsive Anpassungen für Smartphones */
-        @media(max-width: 900px) {
-            .nav-links { display: none; }
-            header.hero { padding: 120px 15px 50px; }
-            .hero h1 { font-size: 2.2rem; }
-            .company-banner { flex-direction: column; text-align: center; padding: 30px 20px; gap: 30px; }
-            .company-banner-logo img { max-height: 180px; }
-            section { padding: 70px 5%; }
-            .details-container { padding: 30px 20px; }
-            
-            /* Optimierung für das Showcase-Bild auf dem Handy */
-            .showcase-container {
-                border-radius: 12px;
-                margin-top: 10px;
-                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            nav {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="nav-logo">
-            <img src="logo.png" alt="IUM Systeme Österreich Logo">
-            <span>IUM <span>Systeme Österreich</span></span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#about">Unternehmen</a></li>
-            <li><a href="#features">Technologie</a></li>
-            <li><a href="#architecture">Architektur</a></li>
-            <li><a href="#team">Projektteam</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Sektion -->
-    <header class="hero">
-        <div class="hero-badge reveal">HTL Donaustadt &bull; Diplomarbeit 2026/2027</div>
-        <h1 class="reveal">Immobilien-Umweltmonitor</h1>
-        <p class="reveal">Autonome mobile Erfassung von Verkehrsfrequenzen, Schallpegeln und Umweltdaten für präzise Standortanalysen in der Immobilienwirtschaft.</p>
-        
-        <div class="showcase-container reveal">
-            <img src="image.png" alt="Immobilien-Umweltmonitor Prototyp und Web-Dashboard">
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">
+            <span>IUM</span> SYSTEME ÖSTERREICH
         </div>
+        <nav>
+            <a href="#hero">Start</a>
+            <a href="#technologie">Technologie</a>
+            <a href="#hardware">Innenleben</a>
+            <a href="#dashboard">Live-Demo</a>
+        </nav>
+        <a href="#dashboard" class="nav-btn">Dashboard öffnen</a>
     </header>
 
-    <!-- Unternehmens- und Markenpräsentation -->
-    <section id="about">
-        <div class="company-banner reveal">
-            <div class="company-banner-logo">
-                <img src="logo.png" alt="IUM Logo Gross">
+    <!-- HERO SEKTION -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
+            <h1>Mobilität. Umwelt. <span class="gradient-text">Lebensqualität.</span></h1>
+            <p class="slogan">„Saubere Daten. Bessere Entscheidungen.“ – Der voll autonome Immobilien- und Umweltmonitor für smarte Gebäude und Städte.</p>
+            <div class="hero-buttons">
+                <a href="#hardware" class="btn-primary">Technologie entdecken</a>
+                <a href="#dashboard" class="btn-secondary">Live-Daten ansehen</a>
             </div>
-            <div class="company-banner-text">
-                <h3>Über IUM Systeme Österreich</h3>
-                <p>Als innovatives Ingenieurprojekt an der HTL Donaustadt verbinden wir modernste IoT-Sensorik mit einer hochpräzisen Web-Oberfläche. Unser System liefert verlässliche Echtzeit-Umweltdaten für die vorausschauende Immobilien- und Stadtentwicklung.</p>
-            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="hero-sensor-radar.png" alt="IUM Sensor Radar">
         </div>
     </section>
 
-    <!-- System Module Sektion -->
-    <section id="features">
-        <h2 class="section-title reveal">High-Tech Sensorik & System</h2>
-        <p class="section-subtitle reveal">Präzise Messkomponenten für objektive und verlässliche Umweltdaten im Feldeinsatz.</p>
-        
-        <div class="features-grid">
-            <div class="feature-card reveal">
-                <i class="fa-solid fa-gauge-high"></i>
+    <!-- INNERE HARDWARE / SCHNITTMODELL -->
+    <section class="section" id="hardware">
+        <div class="section-header">
+            <h2>Ingenieurskunst im Detail</h2>
+            <p>Das Herzstück des IUM-Monitors: Präzise Sensorik, kombiniert auf einer maßgeschneiderten Hauptplatine mit dem zentralen ESP32-Mikrocontroller.</p>
+        </div>
+        <div class="hardware-showcase">
+            <img src="hardware-schnittmodell.png" alt="IUM Sensor Schnittmodell Innenleben">
+        </div>
+    </section>
+
+    <!-- TECHNOLOGIE & KOMPONENTEN -->
+    <section class="section" id="technologie">
+        <div class="section-header">
+            <h2>Die Kernkomponenten</h2>
+            <p>Was in dem kompakten Gehäuse steckt und wie Umweltdaten in Echtzeit erfasst werden.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <img src="hero-sensor-radar.png" alt="Radar Modul">
                 <h3>24-GHz-Dopplerradar</h3>
-                <p>Berührungslose Erfassung des lokalen Verkehrsaufkommens, präzise Fahrzeugzählung und Ermittlung von Geschwindigkeits-Profilen in Echtzeit.</p>
+                <p>Erfasst berührungslos und datenschutzkonform die Verkehrsgeschwindigkeit und Fahrzeugfrequenz in Echtzeit direkt vor dem Objekt.</p>
             </div>
-            <div class="feature-card reveal">
-                <i class="fa-solid fa-volume-high"></i>
-                <h3>Akustik & Lärmanalyse</h3>
-                <p>Digitales Mikrofon-Array mit integrierter A-Bewertung zur exakten Ermittlung des Schallpegels in Dezibel (dB(A)) für den Tag- und Nachtbetrieb.</p>
+            <div class="card">
+                <img src="sensor-laerm.png" alt="Mikrofon Array">
+                <h3>Mikrofon-Array</h3>
+                <p>Misst präzise den Schallpegel in dB(A), führt Frequenzanalysen durch und erkennt akustische Umwelt-Ereignisse.</p>
             </div>
-            <div class="feature-card reveal">
-                <i class="fa-solid fa-wind"></i>
-                <h3>Umweltsensoren</h3>
-                <p>Kontinuierliche Messung von Feinstaub (PM2.5 / PM10) sowie hochpräzise Erfassung von Temperatur, Luftfeuchtigkeit und Luftdruck (BME280).</p>
-            </div>
-            <div class="feature-card reveal">
-                <i class="fa-solid fa-laptop-code"></i>
-                <h3>IoT Web-Dashboard</h3>
-                <p>ESP32-Zentralsteuerung mit GNSS-Geotagging und automatisierter, grafischer Datenaufbereitung im modernen Live-Dark-Mode.</p>
+            <div class="card">
+                <img src="sensor-feinstaub.png" alt="Feinstaub Einlass">
+                <h3>Feinstaub & Luftgüte</h3>
+                <p>Analysiert mittels optischer Laserstreuung die Partikelkonzentration (PM2.5 & PM10) sowie Temperatur und Luftfeuchte.</p>
             </div>
         </div>
     </section>
 
-    <!-- Erweiterte Technische Details -->
-    <section id="architecture" style="padding-top: 0;">
-        <h2 class="section-title reveal">Technische Systemarchitektur</h2>
-        <p class="section-subtitle reveal">Detaillierte Einblicke in die Hard- und Softwareentwicklung des Messsystems.</p>
-
-        <div class="details-container reveal">
-            <div class="details-grid">
-                <div class="detail-item">
-                    <h4><i class="fa-solid fa-microchip"></i> Mikrocontroller & Energie</h4>
-                    <p>Das Herzstück bildet ein energieeffizienter ESP32-Mikrocontroller. Ein integriertes Energiemanagement gewährleistet den autarken Betrieb im Feld über mehrere Tage hinweg.</p>
-                </div>
-                <div class="detail-item">
-                    <h4><i class="fa-solid fa-clock-rotate-left"></i> Zeitsynchronisation & GPS</h4>
-                    <p>Jeder Datensatz wird mittels GNSS-Modul mit präzisen UTC-Zeitstempeln und exakten Geokoordinaten versehen, was eine lückenlose Verortung der Messstandorte garantiert.</p>
-                </div>
-                <div class="detail-item">
-                    <h4><i class="fa-solid fa-database"></i> Lokaler Speicher & Cloud</h4>
-                    <p>Die erhobenen Sensordaten werden redundant auf einer lokalen microSD-Karte gespeichert und parallel über sichere IoT-Protokolle an das Live-Web-Dashboard übertragen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Sektion -->
-    <section id="team">
-        <h2 class="section-title reveal">Die Köpfe hinter IUM</h2>
-        <p class="section-subtitle reveal">Entwickelt mit technischer Präzision und Führungsanspruch im Rahmen der HTL Donaustadt.</p>
-        
-        <div class="team-grid">
-            <!-- 1. Shala Endrin (Projektleitung) -->
-            <div class="team-card leader reveal">
-                <div class="badge-leader">Projektleitung</div>
-                <div class="team-avatar">SE</div>
-                <h3>Shala Endrin</h3>
-                <div class="role">Gesamtleitung & Systemarchitektur</div>
-                <p>Verantwortlich für die strategische Koordination, Hardware-Integration und Gesamtleitung des Projekts.</p>
-            </div>
-
-            <!-- 2. Ahmed Yousef -->
-            <div class="team-card reveal">
-                <div class="team-avatar">AY</div>
-                <h3>Ahmed Yousef</h3>
-                <div class="role">Hardware & Sensorik</div>
-                <p>Fokus auf die Implementierung der Radartechnik, Schaltungsdesign und präzise Umweltsensorik.</p>
-            </div>
-
-            <!-- 3. Gutic Emir -->
-            <div class="team-card reveal">
-                <div class="team-avatar">GE</div>
-                <h3>Gutic Emir</h3>
-                <div class="role">Software & Web-Dashboard</div>
-                <p>Zuständig für die Entwicklung der Weboberfläche, Datenübertragung und grafische Visualisierung.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026/2027 <span>IUM Systeme Österreich</span> &bull; HTL Donaustadt. Alle Rechte vorbehalten.</p>
+    <!-- FOOTER -->
+    <footer id="dashboard">
+        <p><strong>IUM Systeme Österreich</strong> – Ein Projekt der HTL Donaustadt (Diplomarbeit 2026/2027).</p>
+        <p style="margin-top: 10px;">Smart Cities beginnen im Detail. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- JavaScript für weiche Scroll-Animationen -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const reveals = document.querySelectorAll(".reveal");
-
-            function revealOnScroll() {
-                for (let i = 0; i < reveals.length; i++) {
-                    let windowHeight = window.innerHeight;
-                    let elementTop = reveals[i].getBoundingClientRect().top;
-                    let elementVisible = 100;
-
-                    if (elementTop < windowHeight - elementVisible) {
-                        reveals[i].classList.add("active");
-                    }
-                }
-            }
-
-            window.addEventListener("scroll", revealOnScroll);
-            revealOnScroll(); // Einmal beim Laden ausführen
-        });
-    </script>
 </body>
 </html>
