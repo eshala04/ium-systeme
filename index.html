@@ -113,7 +113,7 @@
             box-shadow: 0 0 25px rgba(59, 130, 246, 0.7);
         }
 
-        /* HERO SEKTION MIT SLIDESHOW */
+        /* HERO SEKTION MIT GROSSER SLIDESHOW */
         .hero-section {
             display: flex;
             align-items: center;
@@ -125,7 +125,7 @@
         }
 
         .hero-content {
-            max-width: 580px;
+            max-width: 540px;
         }
 
         .badge {
@@ -142,7 +142,7 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: 3.3rem;
             line-height: 1.1;
             margin-bottom: 20px;
             font-weight: 800;
@@ -155,7 +155,7 @@
         }
 
         .slogan {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
             margin-bottom: 35px;
             line-height: 1.6;
@@ -198,16 +198,17 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* SLIDESHOW STYLING */
+        /* VERGRÖSSERTE SLIDESHOW */
         .slideshow-container {
-            max-width: 580px;
+            max-width: 700px;
             width: 100%;
             position: relative;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
             border: 1px solid var(--border-color);
             background: var(--card-bg);
+            flex-shrink: 0;
         }
 
         .slide {
@@ -222,14 +223,14 @@
 
         .slide img {
             width: 100%;
-            height: 380px;
+            height: 480px;
             object-fit: cover;
         }
 
         .slide-caption {
-            padding: 15px 20px;
+            padding: 18px 20px;
             background: var(--card-bg);
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
             text-align: center;
@@ -356,7 +357,7 @@
             line-height: 1.6;
         }
 
-        /* TEAM-SEKTION (HOCHWERTIG & STRUKTURIERT) */
+        /* TEAM-SEKTION (NEU: SCHÖN MARKIERTE ROLLEN-BADGES) */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -398,13 +399,20 @@
             border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        .team-role {
+        /* SCHÖN EINGEKREISTE / MARKIERTE BADGES FÜR DIE RÖLLEN */
+        .team-role-badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
             color: var(--accent-blue);
-            font-weight: 600;
-            font-size: 0.85rem;
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
         }
 
         .team-card h3 {
@@ -471,7 +479,7 @@
         <a href="#dashboard" class="nav-btn">Live-Demo</a>
     </header>
 
-    <!-- HERO SEKTION MIT SLIDESHOW (ALLE 5 BILDER INTEGRIERT) -->
+    <!-- HERO SEKTION MIT VERGRÖSSERTER SLIDESHOW -->
     <section class="hero-section" id="hero">
         <div class="hero-content">
             <span class="badge">HTL DONAUSTADT • DIPLOMARBEIT 2026/2027</span>
@@ -483,7 +491,7 @@
             </div>
         </div>
         
-        <!-- SLIDESHOW MIT ALLEN BILDERN INKL. IMAGE.PNG & DASHBOARD-PREVIEW.PNG -->
+        <!-- VERGRÖSSERTE SLIDESHOW -->
         <div class="slideshow-container">
             <div class="slide active">
                 <img src="image.png" alt="IUM System im Einsatz vor Baustelle mit Laptop">
@@ -559,7 +567,7 @@
         </div>
     </section>
 
-    <!-- PROJEKTTEAM (SCHÖN STRUKTURIERT) -->
+    <!-- PROJEKTTEAM (MIT SCHÖN MARKIERTEN ROLLEN-BADGES) -->
     <section class="section" id="team">
         <div class="section-header">
             <h2>Das Projektteam</h2>
@@ -569,7 +577,7 @@
             <div class="team-card">
                 <div>
                     <div class="team-avatar">EŠ</div>
-                    <div class="team-role">Projektleitung</div>
+                    <div class="team-role-badge">Projektleitung</div>
                     <h3>Endrin Shala</h3>
                     <p>Verantwortlich für die Gesamtkoordination, die strategische Planung der Diplomarbeit sowie die nahtlose Systemintegration und die übergeordnete Architektur der Web-Oberfläche und des Dashboards.</p>
                 </div>
@@ -577,7 +585,7 @@
             <div class="team-card">
                 <div>
                     <div class="team-avatar">AY</div>
-                    <div class="team-role">Hardware & Schaltungsdesign</div>
+                    <div class="team-role-badge">Hardware & Schaltungsdesign</div>
                     <h3>Ahmed Yousef</h3>
                     <p>Verantwortlich für den Entwurf und die Bestückung der Hauptplatinen, die präzise Anbindung der Sensorik sowie das Energiemanagement und die physikalische Gehäusekonstruktion des Messmonitors.</p>
                 </div>
@@ -585,7 +593,7 @@
             <div class="team-card">
                 <div>
                     <div class="team-avatar">EG</div>
-                    <div class="team-role">Entwicklung & Mikrocontroller</div>
+                    <div class="team-role-badge">Entwicklung & Mikrocontroller</div>
                     <h3>Emir Gutic</h3>
                     <p>Verantwortlich für die Programmierung des ESP32-Mikrocontrollers, die Auswertung der Rohdaten der Radar-, Lärm- und Feinstaubmodule sowie die sichere Datenübertragung an die Cloud-Infrastruktur.</p>
                 </div>
